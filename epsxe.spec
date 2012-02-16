@@ -33,7 +33,7 @@ JoyPad Linuzappz X Windows Pad Driver 1.6
 %__rm -rf %{buildroot}
 %__install -D -m 0755 epsxe-start %{buildroot}%{_bindir}/epsxe-start
 %__install -D -m 0644 epsxe.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
-%__install -D -m 0644 epsxe.desktop %{buildroot}%{_desktopdir}/%{name}.desktop
+%__install -D -m 0644 epsxe.desktop %{buildroot}%{_datadir}/applications/%{name}.desktop
 %__install -D -m 0755 epsxe %{buildroot}%{_libdir}/epsxe/epsxe
 %__install -D -m 0644 keycodes.lst %{buildroot}%{_libdir}/epsxe/keycodes.lst
 %__cp -r cfg %{buildroot}%{_libdir}/%{name}/
@@ -51,6 +51,6 @@ JoyPad Linuzappz X Windows Pad Driver 1.6
 %defattr(-,root,root)
 %{_bindir}/%{name}-start
 %{_libdir}/%{name}/*
-%{_desktopdir}/%{name}.desktop
+%{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.png
 
