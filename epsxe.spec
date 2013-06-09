@@ -1,10 +1,14 @@
+%define __noautoprov '(.*)\\.so(.*)'
+%define __noautoreq 'libstdc\\+\\+-libc6\\.2-2\\.so\\.3'
+
+Summary:	Sony PlayStation emulator
 Name:		epsxe
 Version:	1.6.0
-Release:	%mkrel 69.3
-Summary:	Sony PlayStation emulator
+Release:	69.5
 License:	Freeware
 Group:		Emulators
-URL:		http://www.epsxe.com
+Url:		http://www.epsxe.com
+# Custom repack with plugins etc
 Source:		%{name}-%{version}.tar.bz2
 Suggests:	galaxy-gtk12
 ExclusiveArch:	%{ix86}
@@ -27,28 +31,24 @@ JoyPad ammoQ's PadJoy 0.8
 JoyPad Linuzappz X Windows Pad Driver 1.6
 
 %prep
-%setup
+%setup -q
 
 %install
-%__rm -rf %{buildroot}
-%__install -D -m 0755 epsxe-start %{buildroot}%{_bindir}/epsxe-start
-%__install -D -m 0644 epsxe.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
-%__install -D -m 0644 epsxe.desktop %{buildroot}%{_datadir}/applications/%{name}.desktop
-%__install -D -m 0755 epsxe %{buildroot}%{_libdir}/epsxe/epsxe
-%__install -D -m 0644 keycodes.lst %{buildroot}%{_libdir}/epsxe/keycodes.lst
-%__cp -r cfg %{buildroot}%{_libdir}/%{name}/
-%__cp -r docs %{buildroot}%{_libdir}/%{name}/
-%__cp -r extra %{buildroot}%{_libdir}/%{name}/
-%__cp -r plugins %{buildroot}%{_libdir}/%{name}/
-%__cp -r shaders %{buildroot}%{_libdir}/%{name}/
+install -D -m 0755 epsxe-start %{buildroot}%{_bindir}/epsxe-start
+install -D -m 0644 epsxe.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
+install -D -m 0644 epsxe.desktop %{buildroot}%{_datadir}/applications/%{name}.desktop
+install -D -m 0755 epsxe %{buildroot}%{_libdir}/epsxe/epsxe
+install -D -m 0644 keycodes.lst %{buildroot}%{_libdir}/epsxe/keycodes.lst
+cp -r cfg %{buildroot}%{_libdir}/%{name}/
+cp -r docs %{buildroot}%{_libdir}/%{name}/
+cp -r extra %{buildroot}%{_libdir}/%{name}/
+cp -r plugins %{buildroot}%{_libdir}/%{name}/
+cp -r runtime %{buildroot}%{_libdir}/%{name}/
+cp -r shaders %{buildroot}%{_libdir}/%{name}/
 
-%__rm -f %{buildroot}%{_libdir}/%{name}/plugins/libgpuPeopsSDL.so.1.0.16
-
-%clean
-%__rm -rf %{buildroot}
+rm -f %{buildroot}%{_libdir}/%{name}/plugins/libgpuPeopsSDL.so.1.0.16
 
 %files
-%defattr(-,root,root)
 %{_bindir}/%{name}-start
 %{_libdir}/%{name}/*
 %{_datadir}/applications/%{name}.desktop
