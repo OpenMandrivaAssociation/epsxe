@@ -4,7 +4,7 @@
 Summary:	Sony PlayStation emulator
 Name:		epsxe
 Version:	1.6.0
-Release:	69.6
+Release:	69.7
 License:	Freeware
 Group:		Emulators
 Url:		http://www.epsxe.com
