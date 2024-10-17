@@ -7,7 +7,7 @@ Version:	1.6.0
 Release:	69.7
 License:	Freeware
 Group:		Emulators
-Url:		http://www.epsxe.com
+Url:		https://www.epsxe.com
 # Custom repack with plugins etc
 Source:		%{name}-%{version}.tar.bz2
 Suggests:	galaxy-gtk12
